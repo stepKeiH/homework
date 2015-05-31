@@ -10,7 +10,7 @@ def check_word(new_dict,new):
 
 
 def main():
-    test = "moonstarer"
+    test = raw_input()
 
     f = open('/usr/share/dict/words')
     lines2 = f.readlines()

@@ -10,15 +10,24 @@ def check_word(new_dict,new):
 
 
 def main():
-    test = raw_input()
+
+    while True:
+        characters = raw_input("Please type 16 alphabet characters: ")
+        if len(characters) != 16:
+            print "It's not 16 characters."
+        if not characters.isalpha():
+            print "You can use alphabet only."
+        if len(characters) == 16 and characters.isalpha():
+            break
+        print "Please try again."
 
     f = open('/usr/share/dict/words')
-    lines2 = f.readlines()
+    wordfile = f.readlines()
     f.close()
 
     ans = ""
 
-    given = test.lower()
+    given = characters.lower()
     given_dict = {}
 
     for i in given:
@@ -27,7 +36,7 @@ def main():
         else:
             given_dict[i] += 1
 
-    for words in lines2:
+    for words in wordfile:
         new_words = words.lower().strip()
         new_dict = dict(given_dict)
         if check_word(new_dict,new_words):

@@ -41,4 +41,18 @@ public class MatrixTest {
         double[][] a = {{-1,3},{0,2},{4,5}}, b = {{-4,5},{-1,1}};
         Matrix.times(a, b);
     }
+
+    @Test
+    public void test6() throws Exception {
+        // Testing zero matrix.
+        double[][] a = {{0,0,0},{0,0,0},{0,0,0}}, b = {{4,5,9},{1,1,8},{5,11,6}};
+        assertArrayEquals(a, Matrix.times(a, b));
+    }
+
+    @Test
+    public void test7() throws Exception {
+        // Testing identity matrix.
+        double[][] a = {{-1,3,1},{0,2,5},{4,5,3}}, b = {{1,0,0},{0,1,0},{0,0,1}};
+        assertArrayEquals(a, Matrix.times(a, b));
+    }
 } 

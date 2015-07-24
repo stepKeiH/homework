@@ -56,7 +56,7 @@ def tokenize(line):
         tokens.append(token)
     return tokens
 
-def make_new_tokens(tokens):
+def evaluate_multi_and_divi(tokens):
     if len(tokens) < 2:
         return tokens
 
@@ -90,7 +90,7 @@ def make_new_tokens(tokens):
     return tokens
 
 
-def evaluate(tokens):
+def evaluate_plus_and_minus(tokens):
     """
     Evaluate the list of tokens and return a calculated result
     """
@@ -110,9 +110,14 @@ def evaluate(tokens):
         index += 1
     return answer
 
+def evaluate(tokens):
+    tokens = evaluate_multi_and_divi(tokens)  # 第1段階の評価
+    answer = evaluate_plus_and_minus(tokens)  # 第2段階の評価
+    return answer
+
 def main(line):
     tokens = tokenize(line)
-    answer = evaluate(make_new_tokens(tokens))
+    answer = evaluate(tokens)
     return answer
 
 if __name__ == "__main__":

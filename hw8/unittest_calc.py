@@ -38,7 +38,7 @@ class CaluculatorTest(unittest.TestCase):
             calculator.main('3+4-/5+1')
 
     def test__8(self): #invalid character case
-        with self.assertRaisesRegex(Exception, 'Invalid syntax')
+        with self.assertRaisesRegex(Exception, 'Invalid syntax'):
             calculator.main('3+')
 
 
